@@ -1,0 +1,136 @@
+:root {
+    --a: #f39cdd;
+    --u: #daffed;
+    --l: #ffffff;
+    --sidebar-width: 6em;
+    --button-color:color-mix(in srgb, var(--a), var(--u) 10%);
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: fit-content;
+    background-color: color-mix(in srgb, var(--a) 50%, var(--u) 50%);
+    padding: 1em;
+    border-radius: 1.5em;
+    gap: .25em;
+}
+
+body {
+    margin: 0;
+}
+
+
+#content {
+    height: 100dvh;
+    width: calc(100dvw - 1em);
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+}
+
+.card-header {
+    border-radius: 2em;
+    max-height: 100px;
+    object-fit: cover;
+}
+
+.card-description {
+    margin: 0;
+    padding: .25em;
+    background-color: color-mix(in srgb, var(--a), var(--l) 10%);
+    border-radius: 0 .5em .5em 0;
+    border-left: 3px var(--l) solid;
+
+}
+
+.card-button {
+    background-color: var(--button-color);
+    border: none !important;
+    height: 2em;
+    border-radius: .5em;
+}
+
+
+
+.card.open {
+    flex-direction: row;
+    width: 100%;
+}
+
+.card.open .card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 0 1em;
+    background-color: color-mix(in srgb, var(--a) 50%, var(--u) 50%);
+    height: 3em;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: 800;
+}
+
+
+nav#sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 4em;
+    align-items: start;
+    justify-content: star;
+    padding: 1em;
+    width: var(--sidebar-width);
+    background-color: color-mix(in srgb, var(--a) 50%, var(--u) 50%);
+
+}
+
+body {
+    display: flex;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#page-wrapper {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#sidebar li {
+    background-color: var(--button-color);
+    padding: .25em .5em;
+    border-radius: 999px;
+
+}
+#sidebar:has(#menu:checked) {
+    max-height: 1em;
+    overflow: hidden;
+}
+#menu {
+    transform: translateX(-999px);
+}
+#menu::after {
+    transform: translateX(999px) translateY(-.75em);
+    height: 2em;
+    width: 2em;
+    background-color: var(--button-color);
+    border-radius: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    content: "X";
+}
+
+#menu:checked::after {
+content: "=";
+}
